@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>भिजिट नेपाल वर्ष २०८५ · Visit Nepal Year 2085 — Nepal Wellness Year 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Noto+Serif+Devanagari:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#191527;
+  --dusk:#2b2347;
+  --dusk2:#3a2f57;
+  --snow:#FBF6EC;
+  --paper:#F4EEE0;
+  --saffron:#E69A3C;
+  --saffron-deep:#C5701E;
+  --crimson:#AE3B45;
+  --teal:#2E6B68;
+  --gold:#D9B25E;
+  --ink-text:#F4EFE3;
+  --dark-text:#241E33;
+  --muted:#8d84a6;
+  --line: rgba(244,239,227,0.14);
+  --line-dark: rgba(36,30,51,0.12);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--snow);
+  color:var(--dark-text);
+  font-family:'Manrope',sans-serif;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+.dev{font-family:'Noto Serif Devanagari','Manrope',serif;}
+.dev-sans{font-family:'Noto Sans Devanagari','Manrope',sans-serif;}
+h1,h2,h3,.disp{font-family:'Fraunces',serif; font-weight:600; letter-spacing:-0.01em; margin:0;}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.72rem;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--saffron-deep);
+  display:flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--saffron-deep);display:inline-block;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.wrap{max-width:1240px;margin:0 inline-auto;margin-left:auto;margin-right:auto;padding:0 6vw;}
+section{position:relative;}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.r-d1{transition-delay:.08s;} .r-d2{transition-delay:.16s;} .r-d3{transition-delay:.24s;} .r-d4{transition-delay:.32s;}
+
+/* ---------- nav ---------- */
+.nav{
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:22px 6vw; transition:background .4s,padding .4s, border-color .4s;
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{ background:rgba(25,21,39,0.86); backdrop-filter:blur(14px); padding:14px 6vw; border-bottom:1px solid var(--line);}
+.nav-logo{display:flex; align-items:center; gap:10px; color:var(--ink-text); font-family:'Fraunces',serif; font-weight:700; font-size:1.05rem; letter-spacing:0.01em;}
+.nav-logo svg{width:26px;height:26px;flex-shrink:0;}
+.nav-links{display:flex; gap:34px; font-size:0.86rem; color:var(--ink-text); opacity:0.86;}
+.nav-links a{position:relative; padding-bottom:4px;}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--saffron);transition:width .3s;}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{
+  font-size:0.78rem; letter-spacing:0.04em; color:var(--ink);
+  background:var(--saffron); padding:11px 22px; border-radius:100px;
+  font-weight:700; white-space:nowrap; cursor:pointer; border:none;
+  transition:transform .25s, box-shadow .25s;
+}
+.nav-cta:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(230,154,60,0.35);}
+.nav-burger{display:none;}
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:100vh; position:relative; overflow:hidden;
+  background:
+    radial-gradient(ellipse 100% 60% at 50% 0%, rgba(230,154,60,0.18), transparent 60%),
+    linear-gradient(180deg, #100D1C 0%, #1d1834 32%, #2b2347 58%, #4a3a5e 78%, #7a5a52 100%);
+}
+.stars{position:absolute; inset:0 0 50% 0; pointer-events:none;}
+.star{position:absolute; width:2px; height:2px; background:#fff; border-radius:50%; opacity:.7; animation:twinkle 4s ease-in-out infinite;}
+@keyframes twinkle{0%,100%{opacity:.15;}50%{opacity:.9;}}
+
+.skyline{position:absolute; bottom:0; left:0; width:100%; z-index:2;}
+.peak-glow{position:absolute; bottom:18%; left:50%; transform:translateX(-50%); width:560px; height:560px; background:radial-gradient(circle, rgba(255,210,150,0.35), transparent 65%); filter:blur(10px); z-index:1; pointer-events:none;}
+
+.prayer-flags{position:absolute; top:60px; left:0; width:100%; z-index:5; opacity:0.92;}
+
+.hero-inner{
+  position:relative; z-index:6; height:100vh; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; text-align:center; padding:0 6vw;
+}
+.hero-eyebrow{color:var(--gold); font-family:'JetBrains Mono',monospace; font-size:0.74rem; letter-spacing:0.3em; text-transform:uppercase; margin-bottom:26px; display:flex; gap:14px; align-items:center;}
+.hero-eyebrow span.dot{width:5px;height:5px;border-radius:50%;background:var(--saffron);display:inline-block;}
+.hero h1.dev{
+  color:var(--ink-text); font-size:clamp(2.6rem,7vw,5.6rem); line-height:1.08; font-weight:700;
+  text-shadow:0 4px 40px rgba(0,0,0,0.35); margin-bottom:6px;
+}
+.hero-en{
+  color:var(--ink-text); font-family:'Fraunces',serif; font-style:italic; font-weight:500;
+  font-size:clamp(1.1rem,2.4vw,1.65rem); opacity:0.92; margin-bottom:30px; letter-spacing:0.01em;
+}
+.hero-en b{font-style:normal; font-weight:700; color:var(--saffron);}
+.hero-sub{
+  max-width:620px; color:#E5DFD2; font-size:1.02rem; line-height:1.75; opacity:0.86; margin-bottom:40px;
+}
+.hero-ctas{display:flex; gap:16px; flex-wrap:wrap; justify-content:center;}
+.btn-primary{
+  background:var(--saffron); color:var(--ink); padding:16px 34px; border-radius:100px;
+  font-weight:700; font-size:0.92rem; border:none; cursor:pointer; transition:transform .25s, box-shadow .25s;
+  box-shadow:0 14px 30px rgba(230,154,60,0.28);
+}
+.btn-primary:hover{transform:translateY(-3px); box-shadow:0 18px 38px rgba(230,154,60,0.4);}
+.btn-ghost{
+  border:1px solid rgba(244,239,227,0.4); color:var(--ink-text); background:transparent;
+  padding:16px 30px; border-radius:100px; font-weight:600; font-size:0.92rem; cursor:pointer;
+  transition:background .25s, border-color .25s;
+  display:flex; align-items:center; gap:10px;
+}
+.btn-ghost:hover{background:rgba(244,239,227,0.1); border-color:rgba(244,239,227,0.7);}
+.scroll-cue{position:absolute; bottom:28px; left:50%; transform:translateX(-50%); z-index:6; color:var(--ink-text); opacity:0.55; display:flex; flex-direction:column; align-items:center; gap:8px; font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; font-family:'JetBrains Mono',monospace;}
+.scroll-cue .line{width:1px;height:34px;background:linear-gradient(180deg, var(--ink-text), transparent); animation:scrolldown 2s ease-in-out infinite;}
+@keyframes scrolldown{0%{opacity:0;}50%{opacity:1;}100%{opacity:0;}}
+
+/* ---------- ticker ---------- */
+.ticker-wrap{ background:var(--ink); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:16px 0; overflow:hidden; white-space:nowrap;}
+.ticker{display:inline-block; animation:tick 38s linear infinite;}
+.ticker span{color:var(--ink-text); font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.06em; margin-right:50px; opacity:0.78;}
+.ticker span b{color:var(--saffron);}
+@keyframes tick{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* ---------- section generic ---------- */
+.section{padding:120px 0;}
+.section.tight{padding:90px 0;}
+.section-head{max-width:680px; margin-bottom:64px;}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+.section-head h2{font-size:clamp(2rem,4vw,3rem); line-height:1.12; margin-top:18px;}
+.section-head p{margin-top:18px; color:var(--muted); font-size:1.02rem; line-height:1.7; max-width:560px;}
+.section-head.center p{margin-left:auto;margin-right:auto;}
+
+.dark{background:var(--ink); color:var(--ink-text);}
+.dark .muted{color:#b9b0d4;}
+.dark .eyebrow{color:var(--gold);}
+.dark .eyebrow::before{background:var(--gold);}
+
+/* ---------- pillars ---------- */
+.pillars{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line-dark); border:1px solid var(--line-dark); border-radius:18px; overflow:hidden;}
+.pillar{background:var(--snow); padding:38px 30px; transition:background .3s;}
+.pillar:hover{background:#fff;}
+.pillar .num{font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--saffron-deep); letter-spacing:0.1em;}
+.pillar svg{width:34px;height:34px;margin:18px 0 16px; color:var(--teal);}
+.pillar h3{font-size:1.12rem; margin-bottom:10px;}
+.pillar p{color:var(--muted); font-size:0.88rem; line-height:1.6; margin:0;}
+
+/* ---------- Everest spotlight ---------- */
+.everest{
+  background:linear-gradient(180deg,#1d1834,#100D1C 70%);
+  color:var(--ink-text); padding:0; overflow:hidden; position:relative;
+}
+.everest-grid{display:grid; grid-template-columns:1.05fr 0.95fr; gap:0; align-items:stretch;}
+.everest-art{position:relative; min-height:560px; display:flex; align-items:flex-end; justify-content:center; overflow:hidden; background:radial-gradient(ellipse at 50% 30%, rgba(230,154,60,0.12), transparent 60%);}
+.everest-copy{padding:100px 6vw 100px 0; display:flex; flex-direction:column; justify-content:center;}
+.everest-copy .eyebrow{color:var(--gold);}
+.everest-copy .eyebrow::before{background:var(--gold);}
+.everest-copy h2{font-size:clamp(2.1rem,4vw,3.3rem); margin:18px 0 22px; line-height:1.1;}
+.everest-copy p.lead{color:#cfc7e6; font-size:1.02rem; line-height:1.75; max-width:480px; margin-bottom:34px;}
+.estat-row{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin-bottom:34px;}
+.estat{padding:20px 0 20px 0; border-right:1px solid var(--line);}
+.estat:last-child{border-right:none;}
+.estat .v{font-family:'Fraunces',serif; font-weight:700; font-size:1.5rem; color:var(--saffron);}
+.estat .l{font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:#a79fc4; margin-top:4px; font-family:'JetBrains Mono',monospace;}
+
+/* ---------- wellness ---------- */
+.wcards{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+.wcard{background:#fff; border:1px solid var(--line-dark); border-radius:20px; padding:34px 26px; transition:transform .35s, box-shadow .35s;}
+.wcard:hover{transform:translateY(-6px); box-shadow:0 24px 50px rgba(43,35,71,0.1);}
+.wcard .tag{width:50px; height:50px; border-radius:14px; background:linear-gradient(135deg, var(--teal), #1e4b48); display:flex; align-items:center; justify-content:center; margin-bottom:20px;}
+.wcard .tag svg{width:24px;height:24px;color:#fff;}
+.wcard h3{font-size:1.08rem; margin-bottom:10px;}
+.wcard p{color:var(--muted); font-size:0.87rem; line-height:1.6;}
+
+/* ---------- destinations ---------- */
+.dest-scroll{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+.dcard{
+  position:relative; border-radius:22px; overflow:hidden; aspect-ratio:4/5;
+  display:flex; flex-direction:column; justify-content:flex-end; padding:28px;
+  color:#fff; isolation:isolate;
+}
+.dcard::after{content:"";position:absolute; inset:0; background:linear-gradient(180deg, transparent 35%, rgba(10,8,18,0.86) 100%); z-index:1;}
+.dcard .scape{position:absolute; inset:0; z-index:0;}
+.dcard .badge{position:relative; z-index:2; align-self:flex-start; background:rgba(255,255,255,0.16); border:1px solid rgba(255,255,255,0.3); backdrop-filter:blur(6px); font-family:'JetBrains Mono',monospace; font-size:0.68rem; letter-spacing:0.08em; padding:6px 12px; border-radius:100px; margin-bottom:auto;}
+.dcard .info{position:relative; z-index:2;}
+.dcard h3{font-family:'Fraunces',serif; font-size:1.4rem; margin-bottom:6px;}
+.dcard p{font-size:0.84rem; opacity:0.85; line-height:1.55; max-width:90%;}
+.dcard .access{display:flex; align-items:center; gap:8px; margin-top:14px; font-size:0.76rem; color:var(--gold); font-weight:700;}
+.dcard .access svg{width:14px;height:14px;}
+
+/* ---------- invest ---------- */
+.invest{background:linear-gradient(120deg, var(--teal), #1c4744); color:#fff; border-radius:28px; padding:64px; display:grid; grid-template-columns:1.2fr 0.8fr; gap:50px; align-items:center; position:relative; overflow:hidden;}
+.invest::before{content:""; position:absolute; right:-60px; top:-60px; width:300px; height:300px; border-radius:50%; background:rgba(255,255,255,0.06);}
+.invest h2{font-size:clamp(1.8rem,3vw,2.6rem); margin:14px 0 18px; color:#fff;}
+.invest p{color:rgba(255,255,255,0.82); line-height:1.75; font-size:0.98rem; max-width:480px;}
+.invest-list{display:flex; flex-direction:column; gap:18px;}
+.invest-item{display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); padding:16px 18px; border-radius:14px;}
+.invest-item svg{width:20px;height:20px; flex-shrink:0; color:var(--gold); margin-top:2px;}
+.invest-item span{font-size:0.86rem; line-height:1.5;}
+.invest .eyebrow{color:var(--gold);} .invest .eyebrow::before{background:var(--gold);}
+
+/* ---------- markets ---------- */
+.markets{display:flex; justify-content:space-between; flex-wrap:wrap; gap:30px; border-top:1px solid var(--line-dark); border-bottom:1px solid var(--line-dark); padding:46px 0;}
+.market{text-align:center; flex:1; min-width:120px;}
+.market svg{width:30px;height:30px; color:var(--saffron-deep); margin-bottom:10px;}
+.market .name{font-weight:700; font-size:0.92rem;}
+.market .desc{font-size:0.76rem; color:var(--muted); margin-top:4px;}
+
+/* ---------- cta / footer ---------- */
+.final-cta{background:linear-gradient(160deg,#241d3c,#100D1C); color:var(--ink-text); border-radius:30px; padding:90px 6vw; text-align:center; position:relative; overflow:hidden;}
+.final-cta .glow{position:absolute; width:500px; height:500px; background:radial-gradient(circle, rgba(230,154,60,0.18), transparent 65%); top:-150px; left:50%; transform:translateX(-50%);}
+.final-cta h2{font-size:clamp(2rem,4.4vw,3.2rem); margin:18px auto 18px; max-width:760px; line-height:1.15; position:relative; z-index:1;}
+.final-cta p{color:#cfc7e6; max-width:520px; margin:0 auto 36px; position:relative; z-index:1;}
+.signup{display:flex; gap:10px; max-width:460px; margin:0 auto; position:relative; z-index:1;}
+.signup input{flex:1; padding:15px 20px; border-radius:100px; border:1px solid rgba(244,239,227,0.25); background:rgba(244,239,227,0.06); color:var(--ink-text); font-family:'Manrope',sans-serif; font-size:0.92rem;}
+.signup input::placeholder{color:#9d93bd;}
+.signup input:focus{outline:none; border-color:var(--saffron);}
+.signup-note{margin-top:16px; font-size:0.78rem; color:#8d84a6; position:relative; z-index:1;}
+
+footer{background:var(--ink); color:var(--ink-text); padding:70px 0 30px;}
+.foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:50px; padding-bottom:50px; border-bottom:1px solid var(--line);}
+.foot-brand{font-family:'Fraunces',serif; font-weight:700; font-size:1.3rem; margin-bottom:14px;}
+.foot-brand .dev{display:block; font-size:1rem; color:var(--gold); margin-top:6px;}
+footer p{color:#9d93bd; font-size:0.86rem; line-height:1.7; max-width:280px;}
+.foot-col h4{font-size:0.74rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:16px; font-family:'JetBrains Mono',monospace;}
+.foot-col a{display:block; font-size:0.88rem; color:#d6d0e8; margin-bottom:11px; opacity:0.85;}
+.foot-col a:hover{color:var(--saffron);}
+.foot-bottom{display:flex; justify-content:space-between; align-items:center; padding-top:24px; font-size:0.78rem; color:#776e96; flex-wrap:wrap; gap:14px;}
+
+@media (max-width:900px){
+  .nav-links{display:none;}
+  .pillars{grid-template-columns:1fr 1fr;}
+  .everest-grid{grid-template-columns:1fr;}
+  .everest-copy{padding:60px 6vw;}
+  .everest-art{min-height:340px;}
+  .wcards{grid-template-columns:1fr 1fr;}
+  .dest-scroll{grid-template-columns:1fr 1fr;}
+  .invest{grid-template-columns:1fr; padding:40px 26px;}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:560px){
+  .pillars{grid-template-columns:1fr;}
+  .wcards{grid-template-columns:1fr;}
+  .dest-scroll{grid-template-columns:1fr;}
+  .estat-row{grid-template-columns:1fr; }
+  .estat{border-right:none; border-bottom:1px solid var(--line);}
+  .signup{flex-direction:column;}
+  .foot-grid{grid-template-columns:1fr;}
+  .invest::before{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M2 19L8 8L11 13L14 7L22 19H2Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="14" cy="4.2" r="1" fill="currentColor"/></svg>
+    सगरमाथा&nbsp;/ NEPAL
+  </div>
+  <div class="nav-links">
+    <a href="#wellness">Wellness Tourism</a>
+    <a href="#everest">Everest</a>
+    <a href="#destinations">Destinations</a>
+    <a href="#invest">Invest</a>
+  </div>
+  <button class="nav-cta">Plan Your Visit</button>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="stars" id="stars"></div>
+
+  <!-- prayer flags -->
+  <svg class="prayer-flags" viewBox="0 0 1440 90" preserveAspectRatio="none" style="width:100%;height:90px;">
+    <path d="M0,8 Q720,55 1440,8" stroke="rgba(244,239,227,0.35)" stroke-width="1.5" fill="none"/>
+    <g id="flags"></g>
+  </svg>
+
+  <div class="peak-glow"></div>
+
+  <!-- layered mountain skyline -->
+  <svg class="skyline" viewBox="0 0 1440 620" preserveAspectRatio="none" style="height:62vh;">
+    <!-- far ridge -->
+    <polygon points="0,420 160,300 320,400 520,260 720,380 940,290 1180,400 1440,320 1440,620 0,620" fill="#4a3c66" opacity="0.55"/>
+    <!-- mid ridge -->
+    <polygon points="0,470 220,340 400,440 600,300 800,420 980,330 1220,440 1440,360 1440,620 0,620" fill="#37294f" opacity="0.75"/>
+    <!-- Everest hero peak (center, taller + glowing) -->
+    <polygon points="560,470 700,150 760,210 840,470" fill="#241a39"/>
+    <polygon points="700,150 760,210 730,225 700,190" fill="#f4d9a8" opacity="0.9"/>
+    <polygon points="660,300 700,190 740,300 700,320" fill="#2c2148"/>
+    <!-- near dark foreground ridge -->
+    <polygon points="0,540 200,440 380,520 600,430 720,470 880,420 1080,510 1280,440 1440,500 1440,620 0,620" fill="#100D1C"/>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span class="dot"></span> NEPAL GOVERNMENT TOURISM INITIATIVE · ब. सं. आर्थिक नीति घोषणा</div>
+    <h1 class="dev">भिजिट नेपाल वर्ष २०८५</h1>
+    <div class="hero-en">VISIT NEPAL YEAR 2085 &nbsp;·&nbsp; <b>NEPAL WELLNESS YEAR 2027</b></div>
+    <p class="hero-sub">Eight of the world's fourteen 8,000m giants, the birthplace of the Buddha, and a 2,500-year-old living culture — rebranded around one idea: <em>आरोग्य पर्यटन</em>, Wellness Tourism. Come for Everest. Stay to heal.</p>
+    <div class="hero-ctas">
+      <button class="btn-primary">Discover the Campaign</button>
+      <button class="btn-ghost">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Watch Sagarmatha Story
+      </button>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
+</header>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker-wrap">
+  <div class="ticker" id="ticker">
+    <span><b>8,848.86m</b> — Sagarmatha, the highest point on Earth</span>
+    <span><b>2 designated years</b> — Visit Nepal 2085 · Aarogya Year 2027</span>
+    <span><b>New incentives</b> for high-value resort &amp; hotel investment</span>
+    <span><b>Core theme:</b> आरोग्य पर्यटन — Wellness Tourism</span>
+    <span><b>Aviation reform</b> underway to exit the EU Air Safety List</span>
+    <span><b>8 of 14</b> of the world's 8,000m peaks are in Nepal</span>
+    <span><b>8,848.86m</b> — Sagarmatha, the highest point on Earth</span>
+    <span><b>2 designated years</b> — Visit Nepal 2085 · Aarogya Year 2027</span>
+    <span><b>New incentives</b> for high-value resort &amp; hotel investment</span>
+    <span><b>Core theme:</b> आरोग्य पर्यटन — Wellness Tourism</span>
+    <span><b>Aviation reform</b> underway to exit the EU Air Safety List</span>
+    <span><b>8 of 14</b> of the world's 8,000m peaks are in Nepal</span>
+  </div>
+</div>
+
+<!-- ============ PILLARS ============ -->
+<section class="section tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">The Policy, Decoded</div>
+      <h2>Four moves behind the campaign.</h2>
+      <p>Straight from this year's budget speech — what the government is actually committing to, and what it means for the traveller, the investor, and the airline passenger.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar reveal r-d1">
+        <div class="num">01</div>
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 6 9 6 14a6 6 0 0012 0c0-5-6-12-6-12z" stroke="currentColor" stroke-width="1.4"/></svg>
+        <h3>Wellness as the Master Brand</h3>
+        <p>Every tourism activity — trekking, pilgrimage, safari, culture — now sits under one umbrella theme: आरोग्य पर्यटन, Wellness Tourism.</p>
+      </div>
+      <div class="pillar reveal r-d2">
+        <div class="num">02</div>
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="9" width="18" height="11" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M7 9V6a5 5 0 0110 0v3" stroke="currentColor" stroke-width="1.4"/></svg>
+        <h3>Resort &amp; Hotel Incentives</h3>
+        <p>Physical and financial incentives for building and operating high-value, tourist-oriented resorts and hotels.</p>
+      </div>
+      <div class="pillar reveal r-d3">
+        <div class="num">03</div>
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" stroke="currentColor" stroke-width="1.2"/></svg>
+        <h3>New Source Markets</h3>
+        <p>Diversifying beyond the traditional traveller base, with dedicated outreach into untapped source countries.</p>
+      </div>
+      <div class="pillar reveal r-d4">
+        <div class="num">04</div>
+        <svg viewBox="0 0 24 24" fill="none"><path d="M2 16l8-3 3-8 3 8 8 3-8 3-3 8-3-8-8-3z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+        <h3>Skies Worth Trusting</h3>
+        <p>Civil Aviation Authority restructuring — separating regulator from operator — targeted to lift Nepal off the EU Air Safety List.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EVEREST SPOTLIGHT ============ -->
+<section class="everest" id="everest">
+  <div class="everest-grid">
+    <div class="everest-art">
+      <svg viewBox="0 0 700 560" style="width:100%;height:100%;" preserveAspectRatio="xMidYMax slice">
+        <defs>
+          <radialGradient id="sunGlow" cx="50%" cy="20%" r="55%">
+            <stop offset="0%" stop-color="#f7e0ad" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#f7e0ad" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="700" height="560" fill="url(#sunGlow)"/>
+        <!-- back ridges -->
+        <polygon points="0,360 120,270 260,340 420,230 560,320 700,260 700,560 0,560" fill="#2c2148" opacity="0.7"/>
+        <polygon points="0,400 160,300 320,380 480,280 620,360 700,310 700,560 0,560" fill="#241a39" opacity="0.85"/>
+        <!-- Everest main peak -->
+        <polygon points="190,560 360,90 430,160 470,560" fill="#190f2e"/>
+        <polygon points="360,90 430,160 408,178 372,140" fill="#f4dba9"/>
+        <polygon points="300,330 360,170 410,330 360,360" fill="#23173c"/>
+        <polygon points="310,330 360,200 400,330" fill="#3a2c57" opacity="0.6"/>
+        <!-- secondary peak (Lhotse-esque) -->
+        <polygon points="430,560 540,230 600,300 640,560" fill="#150c28"/>
+        <polygon points="540,230 600,300 580,312 552,270" fill="#e9caa0" opacity="0.85"/>
+        <!-- snow plume -->
+        <path d="M408,178 Q470,160 520,190" stroke="#f4ecd9" stroke-width="3" stroke-linecap="round" opacity="0.5" fill="none"/>
+        <!-- prayer flags foreground -->
+        <path d="M0,500 Q350,440 700,500" stroke="rgba(244,239,227,0.3)" stroke-width="1.5" fill="none"/>
+        <g fill="none" stroke="rgba(244,239,227,0.45)" stroke-width="1">
+          <rect x="60" y="497" width="14" height="20" fill="#AE3B45" opacity="0.85"/>
+          <rect x="150" y="478" width="14" height="20" fill="#E69A3C" opacity="0.85"/>
+          <rect x="260" y="465" width="14" height="20" fill="#2E6B68" opacity="0.85"/>
+          <rect x="380" y="460" width="14" height="20" fill="#D9B25E" opacity="0.85"/>
+          <rect x="500" y="468" width="14" height="20" fill="#AE3B45" opacity="0.85"/>
+          <rect x="610" y="485" width="14" height="20" fill="#E69A3C" opacity="0.85"/>
+        </g>
+      </svg>
+    </div>
+    <div class="everest-copy">
+      <div class="eyebrow">सगरमाथा · The Crown</div>
+      <h2 class="reveal">Everest isn't a side<br>attraction. It's the hook.</h2>
+      <p class="lead reveal r-d1">No campaign for Nepal works without leading with the one fact that needs no translation: the highest point on Earth is here. The Khumbu becomes the campaign's signature image — base camp treks, Everest View flights, and Sherpa hospitality, marketed not just as a feat of endurance but as a wellness pilgrimage through the world's most rarified air.</p>
+      <div class="estat-row reveal r-d2">
+        <div class="estat"><div class="v">8,848.86m</div><div class="l">Summit Elevation</div></div>
+        <div class="estat"><div class="v">~130 km</div><div class="l">NE of Kathmandu</div></div>
+        <div class="estat"><div class="v">8 / 14</div><div class="l">8,000m Peaks in Nepal</div></div>
+      </div>
+      <button class="btn-primary reveal r-d3" style="align-self:flex-start;">Explore the Khumbu Region</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WELLNESS TOURISM ============ -->
+<section class="section" id="wellness">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <div class="eyebrow" style="justify-content:center;">आरोग्य पर्यटन</div>
+      <h2>What "Wellness Tourism" actually means here.</h2>
+      <p>Not spa weekends. A national repositioning — every existing experience reframed through the lens of restoration, breath, and altitude.</p>
+    </div>
+    <div class="wcards">
+      <div class="wcard reveal r-d1">
+        <div class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="6" r="2.4"/><path d="M12 8.4V14M7 14h10l-1.5 7h-7L7 14z"/></svg></div>
+        <h3>Himalayan Yoga &amp; Meditation</h3>
+        <p>Sunrise sessions facing the Annapurna and Langtang ranges; monastery-led retreats in Pokhara, Kathmandu, and the high valleys.</p>
+      </div>
+      <div class="wcard reveal r-d2">
+        <div class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 18c4-8 4-12 8-14 4 2 4 6 8 14"/><path d="M4 18h16"/></svg></div>
+        <h3>Hot Springs &amp; Ayurveda</h3>
+        <p>Tatopani and Bahundanda's natural hot springs, paired with Ayurvedic resort treatments rooted in Himalayan herbal traditions.</p>
+      </div>
+      <div class="wcard reveal r-d3">
+        <div class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c4-3 7-6.5 7-11a7 7 0 10-14 0c0 4.5 3 8 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
+        <h3>Altitude &amp; Forest Therapy</h3>
+        <p>Clean high-altitude air across Khumbu and Mustang, and rhododendron-forest walks prescribed as much as photographed.</p>
+      </div>
+      <div class="wcard reveal r-d4">
+        <div class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l3 6 6 1-4.5 4.5L17.5 21 12 17.5 6.5 21l1-6.5L3 10l6-1 3-6z"/></svg></div>
+        <h3>Spiritual &amp; Monastery Stays</h3>
+        <p>Pashupatinath, Lumbini, Boudhanath, and Khumbu's high monasteries — pilgrimage reframed as a slower, restorative kind of travel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DESTINATIONS ============ -->
+<section class="section dark" id="destinations">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Easiest to Reach. Hardest to Forget.</div>
+      <h2>Six places that carry the whole story.</h2>
+      <p class="muted">Nepal has hundreds of designated tourist sites — these are the handful that any first-time visitor can reach easily and shouldn't skip.</p>
+    </div>
+    <div class="dest-scroll">
+
+      <div class="dcard reveal r-d1">
+        <svg class="scape" viewBox="0 0 400 500" preserveAspectRatio="xMidYMax slice"><rect width="400" height="500" fill="#3a2a4a"/><polygon points="0,360 100,300 200,350 300,290 400,330 400,500 0,500" fill="#241a39"/><rect x="160" y="240" width="18" height="90" fill="#caa86a"/><polygon points="169,200 200,240 138,240" fill="#caa86a"/></svg>
+        <div class="badge">25 MIN FLIGHT · KTM</div>
+        <div class="info">
+          <h3>Kathmandu Valley</h3>
+          <p>Pashupatinath, Boudhanath, Swayambhunath &amp; three Durbar Squares — seven UNESCO sites within one valley.</p>
+          <div class="access"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Walkable / short taxi rides</div>
+        </div>
+      </div>
+
+      <div class="dcard reveal r-d2">
+        <svg class="scape" viewBox="0 0 400 500" preserveAspectRatio="xMidYMax slice"><rect width="400" height="500" fill="#2c4254"/><polygon points="0,330 140,200 220,260 320,170 400,240 400,500 0,500" fill="#19283a"/><rect x="0" y="380" width="400" height="120" fill="#15506b" opacity="0.7"/></svg>
+        <div class="badge">25–30 MIN FLIGHT · KTM</div>
+        <div class="info">
+          <h3>Pokhara &amp; Phewa Lake</h3>
+          <p>Annapurna's reflection on the lake, Sarangkot sunrises, and the gateway to wellness-trekking circuits.</p>
+          <div class="access"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Domestic flight or scenic drive</div>
+        </div>
+      </div>
+
+      <div class="dcard reveal r-d3">
+        <svg class="scape" viewBox="0 0 400 500" preserveAspectRatio="xMidYMax slice"><rect width="400" height="500" fill="#1d1834"/><polygon points="0,420 120,180 180,260 240,140 320,300 400,260 400,500 0,500" fill="#0f0a1f"/><polygon points="160,200 180,260 130,260" fill="#f0d9a6"/></svg>
+        <div class="badge">35 MIN FLIGHT TO LUKLA</div>
+        <div class="info">
+          <h3>Khumbu / Everest Region</h3>
+          <p>Namche Bazaar, Tengboche Monastery, and Everest View flights for those without two weeks to trek.</p>
+          <div class="access"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Fly to Lukla, or mountain-flight day trip</div>
+        </div>
+      </div>
+
+      <div class="dcard reveal r-d1">
+        <svg class="scape" viewBox="0 0 400 500" preserveAspectRatio="xMidYMax slice"><rect width="400" height="500" fill="#2f3d28"/><rect y="380" width="400" height="120" fill="#1c2417"/><circle cx="120" cy="420" r="22" fill="#16200f"/><circle cx="280" cy="430" r="16" fill="#16200f"/></svg>
+        <div class="badge">5–6 HR DRIVE / 20 MIN FLIGHT</div>
+        <div class="info">
+          <h3>Chitwan National Park</h3>
+          <p>Rhinos, gharial crocodiles, and Bengal tigers in Nepal's first national park and a UNESCO World Heritage Site.</p>
+          <div class="access"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Tourist bus, drive or short flight</div>
+        </div>
+      </div>
+
+      <div class="dcard reveal r-d2">
+        <svg class="scape" viewBox="0 0 400 500" preserveAspectRatio="xMidYMax slice"><rect width="400" height="500" fill="#4a3a2a"/><rect x="170" y="260" width="60" height="140" fill="#d9c79a"/><polygon points="200,200 240,260 160,260" fill="#caa86a"/><rect x="190" y="320" width="20" height="40" fill="#7a5a3a"/></svg>
+        <div class="badge">45 MIN FLIGHT · KTM</div>
+        <div class="info">
+          <h3>Lumbini</h3>
+          <p>The birthplace of Gautam Buddha — Maya Devi Temple and the Sacred Garden, the spiritual anchor of the whole campaign.</p>
+          <div class="access"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Domestic flight to Bhairahawa</div>
+        </div>
+      </div>
+
+      <div class="dcard reveal r-d3">
+        <svg class="scape" viewBox="0 0 400 500" preserveAspectRatio="xMidYMax slice"><rect width="400" height="500" fill="#33425a"/><polygon points="0,300 150,220 250,260 400,190 400,500 0,500" fill="#1b2436"/><circle cx="200" cy="170" r="3" fill="#f4ecd9"/><circle cx="240" cy="150" r="2" fill="#f4ecd9"/><circle cx="160" cy="190" r="2" fill="#f4ecd9"/></svg>
+        <div class="badge">2 HR DRIVE FROM KTM</div>
+        <div class="info">
+          <h3>Bandipur &amp; Nagarkot</h3>
+          <p>Hill-station towns with panoramic Himalayan views — the closest "instant Himalaya" for short layovers.</p>
+          <div class="access"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Easy day trip by road</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ INVEST ============ -->
+<section class="section tight" id="invest">
+  <div class="wrap">
+    <div class="invest reveal">
+      <div>
+        <div class="eyebrow">For Developers &amp; Hoteliers</div>
+        <h2>The government is subsidizing the next generation of Nepali resorts.</h2>
+        <p>The budget earmarks physical and financial incentives specifically for the construction and operation of high-value, tourist-oriented resorts and hotels — aimed squarely at the wellness traveller this campaign is built to attract.</p>
+      </div>
+      <div class="invest-list">
+        <div class="invest-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
+          <span>Fiscal incentives for new high-value hotel &amp; resort construction</span>
+        </div>
+        <div class="invest-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <span>Physical infrastructure support for tourism-grade properties</span>
+        </div>
+        <div class="invest-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <span>Designed to be ready ahead of Visit Nepal Year 2085</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOURCE MARKETS ============ -->
+<section class="section tight">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <div class="eyebrow" style="justify-content:center;">Beyond the Usual Trekkers</div>
+      <h2>Diversifying where visitors come from.</h2>
+    </div>
+    <div class="markets reveal">
+      <div class="market">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg>
+        <div class="name">Europe</div>
+        <div class="desc">Wellness &amp; trekking segments</div>
+      </div>
+      <div class="market">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h18M3 12l5-5M3 12l5 5M21 12l-5-5M21 12l-5 5"/></svg>
+        <div class="name">Middle East &amp; Gulf</div>
+        <div class="desc">High-value resort travel</div>
+      </div>
+      <div class="market">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3 7-3 7-3-7 3-7zM12 16l3 6-3 2-3-2 3-6z"/></svg>
+        <div class="name">East &amp; Southeast Asia</div>
+        <div class="desc">Buddhist pilgrimage travel</div>
+      </div>
+      <div class="market">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="9" r="5"/><circle cx="16" cy="15" r="5"/></svg>
+        <div class="name">South Asia &amp; India</div>
+        <div class="desc">Pilgrimage &amp; weekend wellness</div>
+      </div>
+      <div class="market">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19h16M7 19V9l5-5 5 5v10"/></svg>
+        <div class="name">North America</div>
+        <div class="desc">Expedition &amp; adventure travel</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="final-cta reveal">
+      <div class="glow"></div>
+      <div class="eyebrow" style="justify-content:center; position:relative; z-index:1;">नमस्ते</div>
+      <h2>Two years, one mountain, one new<br>way to call it Nepal.</h2>
+      <p>Be first to know as routes, retreats, and resorts open ahead of Visit Nepal Year 2085 and Nepal Wellness Year 2027.</p>
+      <form class="signup" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Namaste — you\'re on the list'; this.querySelector('button').style.background='#7fae6f';">
+        <input type="email" placeholder="you@example.com" required>
+        <button type="submit" class="btn-primary" style="white-space:nowrap;">Notify Me</button>
+      </form>
+      <div class="signup-note">No spam — just route launches, retreat openings, and visa updates.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Visit Nepal<span class="dev">भिजिट नेपाल वर्ष २०८५</span></div>
+        <p>A campaign concept for Nepal's official Visit Nepal Year 2085 and Nepal Wellness Year 2027 tourism initiative, built around the Wellness Tourism (आरोग्य पर्यटन) brand theme.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <a href="#wellness">Wellness Tourism</a>
+        <a href="#everest">Everest &amp; Khumbu</a>
+        <a href="#destinations">Destinations</a>
+      </div>
+      <div class="foot-col">
+        <h4>For Partners</h4>
+        <a href="#invest">Resort &amp; Hotel Incentives</a>
+        <a href="#">Source-Market Outreach</a>
+        <a href="#">Aviation Reform Updates</a>
+      </div>
+      <div class="foot-col">
+        <h4>Plan</h4>
+        <a href="#">Visas &amp; Entry</a>
+        <a href="#">Flights to Nepal</a>
+        <a href="#">Trip Itineraries</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Concept landing page · Government of Nepal Budget Announcement, Point 23</span>
+      <span>सगरमाथा — विश्वको सर्वोच्च शिखर</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// stars
+const starsEl = document.getElementById('stars');
+for(let i=0;i<70;i++){
+  const s = document.createElement('div');
+  s.className='star';
+  s.style.left = Math.random()*100+'%';
+  s.style.top = Math.random()*60+'%';
+  s.style.animationDelay = (Math.random()*4)+'s';
+  starsEl.appendChild(s);
+}
+
+// prayer flags
+const flagColors = ['#AE3B45','#E69A3C','#2E6B68','#D9B25E','#7a5a8e'];
+const flagsG = document.getElementById('flags');
+for(let i=0;i<26;i++){
+  const x = 30 + i*(1380/26);
+  const sway = Math.sin(i*0.6)*8;
+  const y = 8 + Math.sin((i/26)*Math.PI)*46;
+  const rect = document.createElementNS('http://www.w3.org/2000/svg','rect');
+  rect.setAttribute('x', x);
+  rect.setAttribute('y', y);
+  rect.setAttribute('width', 13);
+  rect.setAttribute('height', 18);
+  rect.setAttribute('fill', flagColors[i % flagColors.length]);
+  rect.setAttribute('opacity', '0.88');
+  rect.style.transformOrigin = `${x+6}px ${y}px`;
+  rect.style.animation = `sway 3.6s ease-in-out infinite`;
+  rect.style.animationDelay = (i*0.07)+'s';
+  flagsG.appendChild(rect);
+}
+const styleSheet = document.createElement('style');
+styleSheet.textContent = `@keyframes sway{0%,100%{transform:rotate(-4deg);}50%{transform:rotate(4deg);}}`;
+document.head.appendChild(styleSheet);
+
+// nav scroll state
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:0.15});
+reveals.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
